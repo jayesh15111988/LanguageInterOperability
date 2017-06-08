@@ -8,18 +8,31 @@
 
 import UIKit
 
+protocol BigWork {
+    func company()
+}
+
 class ViewController: UIViewController {
+
+    var val: Int = 0
+    var name: String? = ""
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+        self.objectiveCMethodCall()
     }
 
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func swiftMethod() {
+        print("val is \(val) and name is \(name ?? "No Name")")
+        print("Swift Method")
     }
 
+    func objectiveCMethodCall() {
+        let sampleCode = ObjectiveCSampleFile()
+        sampleCode.val = 100
+        sampleCode.name = "Random Name"
+        sampleCode.doIt()
+    }
 
 }
 
